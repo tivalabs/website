@@ -17,8 +17,8 @@ const Navbar = () => {
     }, []);
 
     const productLinks = [
-        { name: 'OTC Desktop', href: '#products' },
-        { name: 'Tiva Wallet', href: '#products' },
+        { name: 'OTC', href: '#products' },
+        { name: 'Wallet', href: '#products' },
         { name: 'Bridge', href: '#products' },
         { name: 'Swap', href: '#products' },
     ];
