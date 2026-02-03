@@ -28,7 +28,7 @@ const Footer = () => {
                     <div>
                         <h4 className="font-orbitron font-bold text-white mb-6 uppercase tracking-wider text-sm">Products</h4>
                         <ul className="flex flex-col gap-4">
-                            {['OTC', 'Tiva Wallet', 'Bridge', 'Swap'].map(item => (
+                            {['OTC', 'Wallet', 'Bridge', 'Swap'].map(item => (
                                 <li key={item}>
                                     <a href="#" className="text-text/60 hover:text-primary font-exo text-sm transition-colors hover:translate-x-1 inline-block">
                                         {item}

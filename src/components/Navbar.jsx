@@ -34,9 +34,7 @@ const Navbar = () => {
             <div className="container mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
                 <a href="#" className="flex items-center gap-2 group">
-                    <div className="w-8 h-8 bg-gradient-to-tr from-primary to-secondary rounded-lg flex items-center justify-center font-orbitron font-bold text-black text-xl group-hover:scale-110 transition-transform">
-                        T
-                    </div>
+                    <img src="/logo.png" alt="Tiva Logo" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform" />
                     <span className="font-orbitron font-bold text-2xl tracking-wider text-white">TIVA</span>
                 </a>
 
