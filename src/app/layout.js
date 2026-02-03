@@ -5,7 +5,7 @@ const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' })
 const exo2 = Exo_2({ subsets: ['latin'], variable: '--font-exo' })
 
 export const metadata = {
-  title: 'Tiva Web3',
+  title: 'Tiva Labs',
   description: 'A Market For The Future',
 }
 

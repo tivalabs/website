@@ -9,7 +9,7 @@ const Hero = () => {
             {/* Orb Background */}
             <div className="absolute inset-0 z-0 w-full h-full">
                 <Orb
-                    hue={10}
+                    hue={0}
                     hoverIntensity={1}
                     rotateOnHover={true}
                     backgroundColor="#0B0C15"

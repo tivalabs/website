@@ -9,8 +9,8 @@ module.exports = {
         extend: {
             colors: {
                 background: '#0B0C15',
-                primary: '#00F0FF',
-                secondary: '#7000FF',
+                primary: '#FFD700', // Gold
+                secondary: '#C0C0C0', // Silver
                 surface: 'rgba(255, 255, 255, 0.03)',
                 'surface-hover': 'rgba(255, 255, 255, 0.08)',
                 text: '#A0A0A0',
