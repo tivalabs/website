@@ -9,28 +9,32 @@ const products = [
         title: 'Tiva OTC',
         description: 'Secure, low-slippage over-the-counter trading for large volume execution.',
         icon: <ArrowRightLeft size={32} />,
-        color: 'from-primary to-blue-500'
+        color: 'from-primary to-blue-500',
+        href: 'https://otc.tiva.one'
     },
     {
         id: 'wallet',
         title: 'Tiva Wallet',
         description: 'Non-custodial, multi-chain wallet with built-in social recovery.',
         icon: <Wallet size={32} />,
-        color: 'from-secondary to-purple-500'
+        color: 'from-secondary to-purple-500',
+        href: '#'
     },
     {
         id: 'bridge',
         title: 'Tiva Bridge',
         description: 'Seamlessly transfer assets across different blockchain networks.',
         icon: <Globe size={32} />,
-        color: 'from-pink-500 to-rose-500'
+        color: 'from-pink-500 to-rose-500',
+        href: '#'
     },
     {
         id: 'swap',
         title: 'Tiva Swap',
         description: 'Instant token swaps with optimized routing and minimal fees.',
         icon: <Repeat size={32} />,
-        color: 'from-cyan-400 to-teal-400'
+        color: 'from-cyan-400 to-teal-400',
+        href: '#'
     }
 ];
 
@@ -55,13 +59,14 @@ const Products = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     {products.map((product, index) => (
-                        <motion.div
+                        <motion.a
                             key={product.id}
+                            href={product.href}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative h-[250px] rounded-xl overflow-hidden glass hover:border-primary/30 transition-all duration-500"
+                            className="group relative h-[250px] rounded-xl overflow-hidden glass hover:border-primary/30 transition-all duration-500 block"
                         >
                             {/* Gradient Background Effect on Hover */}
                             <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br ${product.color} transition-opacity duration-500`} />
@@ -80,11 +85,11 @@ const Products = () => {
                                 </div>
 
                                 <div className="flex items-center gap-2 text-white/40 text-xs font-orbitron tracking-wider group-hover:text-primary transition-colors mt-2">
-                                    <span>EXPLORE</span>
+                                    <span>LAUNCH</span>
                                     <ArrowRightLeft className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                 </div>
                             </div>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </div>
             </div>
