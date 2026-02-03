@@ -6,6 +6,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [productsOpen, setProductsOpen] = useState(false); // Mobile toggle for products
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,10 +16,11 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = [
-        { name: 'Products', href: '#products' },
-        { name: 'Ecosystem', href: '#ecosystem' },
-        { name: 'About', href: '#about' },
+    const productLinks = [
+        { name: 'OTC Desktop', href: '#products' },
+        { name: 'Tiva Wallet', href: '#products' },
+        { name: 'Bridge', href: '#products' },
+        { name: 'Swap', href: '#products' },
     ];
 
     return (
@@ -40,15 +42,35 @@ const Navbar = () => {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm font-exo uppercase tracking-wide text-text hover:text-primary transition-colors hover:text-glow font-medium"
-                        >
-                            {link.name}
-                        </a>
-                    ))}
+                    {/* Products Dropdown */}
+                    <div className="relative group">
+                        <button className="flex items-center gap-1 text-sm font-exo uppercase tracking-wide text-text hover:text-primary transition-colors font-medium">
+                            Products
+                            <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                            <div className="w-48 bg-[#0B0C15]/90 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-xl shadow-black/50 overflow-hidden">
+                                {productLinks.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        className="block px-4 py-3 text-sm font-exo text-text/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                                    >
+                                        {link.name}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#ecosystem" className="text-sm font-exo uppercase tracking-wide text-text hover:text-primary transition-colors hover:text-glow font-medium">
+                        Ecosystem
+                    </a>
+                    <a href="#about" className="text-sm font-exo uppercase tracking-wide text-text hover:text-primary transition-colors hover:text-glow font-medium">
+                        About
+                    </a>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -67,19 +89,55 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10"
+                        className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
                     >
                         <div className="px-6 py-6 flex flex-col gap-6">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="font-orbitron text-lg text-white hover:text-primary"
+                            {/* Mobile Products Submenu */}
+                            <div>
+                                <button
+                                    onClick={() => setProductsOpen(!productsOpen)}
+                                    className="flex items-center justify-between w-full font-orbitron text-lg text-white hover:text-primary mb-4"
                                 >
-                                    {link.name}
-                                </a>
-                            ))}
+                                    Products
+                                    <ChevronDown size={16} className={`transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                <AnimatePresence>
+                                    {productsOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="overflow-hidden flex flex-col gap-3 pl-4 border-l border-white/10 ml-2"
+                                        >
+                                            {productLinks.map((link) => (
+                                                <a
+                                                    key={link.name}
+                                                    href={link.href}
+                                                    onClick={() => setMobileMenuOpen(false)}
+                                                    className="text-sm font-exo text-text/70 hover:text-white py-1 block"
+                                                >
+                                                    {link.name}
+                                                </a>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+
+                            <a
+                                href="#ecosystem"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="font-orbitron text-lg text-white hover:text-primary"
+                            >
+                                Ecosystem
+                            </a>
+                            <a
+                                href="#about"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="font-orbitron text-lg text-white hover:text-primary"
+                            >
+                                About
+                            </a>
                         </div>
                     </motion.div>
                 )}
