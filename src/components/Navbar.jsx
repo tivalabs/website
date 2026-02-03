@@ -35,7 +35,10 @@ const Navbar = () => {
                 {/* Logo */}
                 <a href="#" className="flex items-center gap-2 group">
                     <img src="/logo.png" alt="Tiva Logo" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform" />
-                    <span className="font-orbitron font-bold text-2xl tracking-wider text-white">TIVA</span>
+                    <div className="flex flex-col relative leading-none">
+                        <span className="font-orbitron font-bold text-2xl tracking-wider text-white">TIVA</span>
+                        <span className="font-exo absolute bottom-0.5 -right-8 text-[0.65rem] tracking-[0.1em] text-primary font-bold opacity-80">LABS</span>
+                    </div>
                 </a>
 
                 {/* Desktop Links */}
