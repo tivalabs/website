@@ -16,20 +16,20 @@ const Hero = () => {
                 />
             </div>
 
-            {/* Content Container - Bottom Left alignment like reference */}
-            <div className="relative z-10 h-full container mx-auto px-6 md:px-12 pb-20 md:pb-32 flex flex-col justify-end items-start text-left pointer-events-none">
+            {/* Content Container - Centered */}
+            <div className="relative z-10 h-full container mx-auto px-6 md:px-12 flex flex-col justify-center items-center text-center pointer-events-none">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="max-w-3xl pointer-events-auto"
+                    className="max-w-2xl pointer-events-auto flex flex-col items-center"
                 >
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron text-white mb-6 tracking-tight leading-[1.1] uppercase">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-orbitron text-white mb-6 tracking-wider leading-tight uppercase drop-shadow-lg">
                         A Market <br />
                         For The <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Future</span>
                     </h1>
 
-                    <p className="text-base md:text-lg text-text/80 font-light max-w-xl mb-8 leading-relaxed font-exo">
+                    <p className="text-sm md:text-base text-text/90 font-light max-w-lg mb-8 leading-relaxed font-exo">
                         The future already exists as distributed beliefs. <br className="hidden md:block" />
                         Markets compress them into signal.
                     </p>
